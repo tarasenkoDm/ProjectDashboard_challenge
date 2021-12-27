@@ -1,0 +1,64 @@
+<div *ngIf="records" class="wrapper">
+    <h1>Dashboard</h1>
+    <app-filters *ngIf="originalRecords.length"
+                 (onRunFilter)="handleRunFilter($event)"></app-filters>
+    <div class="btn-section">
+        <button mat-raised-button disabled>Add new</button>
+        <button mat-raised-button disabled>Export</button>
+    </div>
+
+    <table *ngIf="records.length" class="table-wrapper">
+        <tr>
+            <th>Title</th>
+            <th>Division</th>
+            <th>Project Owner</th>
+            <th>Budget</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>More info</th>
+        </tr>
+        <tr *ngFor="let record of records; index as index">
+            <td>{{record.title}}</td>
+            <td>{{record.division}}</td>
+            <td>
+                <app-active-input
+                    [fieldName]="'project_owner'"
+                    [fieldValue]="record.project_owner"
+                    [index]="index"
+                    (onChangedRecordField)="handleChangedRecordField($event)"
+                ></app-active-input>
+            </td>
+            <td>
+                <app-active-input
+                    [fieldName]="'budget'"
+                    [fieldValue]="record.budget"
+                    [index]="index"
+                    (onChangedRecordField)="handleChangedRecordField($event)"
+                ></app-active-input>
+            </td>
+            <td>
+                <app-active-select
+                    [index]="index"
+                    [fieldValue]="record.status"
+                    [fieldName]="'status'"
+                    [statusSet]="statusSet"
+                    (onChangedRecordField)="handleChangedRecordField($event)"
+                ></app-active-select>
+            </td>
+            <td>{{record.created}}</td>
+            <td>{{record.modified}}</td>
+            <td>
+                <button mat-raised-button disabled>View more...</button>
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="!records.length">
+        <h2>No data, please edit your filter.</h2>
+    </div>
+    <app-statistics
+        *ngIf="statusStatisticsObj"
+        [statusStatisticsObj]="statusStatisticsObj"></app-statistics>
+</div>
+
+

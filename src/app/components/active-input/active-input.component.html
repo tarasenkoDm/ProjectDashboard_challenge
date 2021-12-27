@@ -1,0 +1,24 @@
+<div *ngIf="fieldValue">
+    <div *ngIf="!isActiveChangeMode" class="active-block" (click)="toggleChangeMode(true)">
+        <span *ngIf="fieldName === 'budget'">{{fieldValue | currency}}</span>
+        <span *ngIf="fieldName !== 'budget'">{{fieldValue}}</span>
+    </div>
+    <div *ngIf="isActiveChangeMode">
+        <mat-form-field *ngIf="fieldName !== 'budget'"
+                        class="example-form-field"
+                        appearance="fill">
+            <mat-label>input name please</mat-label>
+            <input matInput type="text" value="{{fieldValue}}" (change)="handleTempRecord($event)">
+        </mat-form-field>
+        <mat-form-field *ngIf="fieldName === 'budget'"
+                        class="example-form-field"
+                        appearance="fill">
+            <mat-label>input new budget</mat-label>
+            <input matInput type="number" value="{{fieldValue}}" (change)="handleTempRecord($event)">
+        </mat-form-field>
+        <div class="btn-section">
+            <button mat-stroked-button (click)="changeRecordField()">Change</button>
+            <button mat-stroked-button (click)="cancelToggleChangeMode()">Cancel</button>
+        </div>
+    </div>
+</div>

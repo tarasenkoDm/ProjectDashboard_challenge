@@ -1,0 +1,51 @@
+::ng-deep .snackbar-style{
+    background-color: #109410;
+    color: #fff;
+}
+
+.wrapper {
+    position: relative;
+    padding: 10px;
+
+    h1 {
+        text-align: center;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    h2 {
+        padding: 20px 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .btn-section {
+        padding-bottom: 10px;
+        text-align: right;
+
+        button:first-child {
+            margin-right: 10px;
+        }
+    }
+
+    .table-wrapper {
+        width: 100%;
+
+        tr:nth-child(odd) {
+            background-color: rgba(0,0,0,.04);
+        }
+
+        th {
+            font-weight: 500;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+    }
+
+}

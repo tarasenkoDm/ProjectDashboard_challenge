@@ -1,0 +1,19 @@
+<div class="wrapper" *ngIf="filterForm">
+    <p>{{filterName}}</p>
+    <form [formGroup]="filterForm">
+        <ul>
+            <li>
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>From:</mat-label>
+                    <input matInput type="number" formControlName="{{filterName + 'from'}}">
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>To:</mat-label>
+                    <input matInput type="number" formControlName="{{filterName + 'to'}}">
+                </mat-form-field>
+            </li>
+        </ul>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<div class="wrapper" *ngIf="divisionSet.size>0">
+    <h3>Filters</h3>
+    <div class="filters-block">
+        <div class="checkbox-filters-section">
+            <app-checkbox-filter
+                [checkboxSet]="titleSet"
+                [filterName]="'Title'"
+                (onChangeFilterOptions)="handleChangeCheckboxFilterOptions($event)"></app-checkbox-filter>
+
+            <app-checkbox-filter
+                [checkboxSet]="divisionSet"
+                [filterName]="'Division'"
+                (onChangeFilterOptions)="handleChangeCheckboxFilterOptions($event)"></app-checkbox-filter>
+
+            <app-checkbox-filter
+                [checkboxSet]="statusSet"
+                [filterName]="'Status'"
+                (onChangeFilterOptions)="handleChangeCheckboxFilterOptions($event)"></app-checkbox-filter>
+
+            <app-checkbox-filter
+                [checkboxSet]="projectOwnerSet"
+                [filterName]="'Project owner'"
+                (onChangeFilterOptions)="handleChangeCheckboxFilterOptions($event)"></app-checkbox-filter>
+
+        </div>
+        <div class="range-filters-section">
+            <app-range-filter
+                [filterName]="'Budget'"
+                (onChangeRangeFilter)="handleChangeRangeFilter($event)"></app-range-filter>
+
+            <app-date-range-filter
+                [filterName]="'Created'"
+                (onChangeDateRangeFilter)="handleChangeDateRangeFilter($event)"></app-date-range-filter>
+
+            <app-date-range-filter
+                [filterName]="'Modified'"
+                (onChangeDateRangeFilter)="handleChangeDateRangeFilter($event)"></app-date-range-filter>
+
+        </div>
+    </div>
+    <div class="btn-section">
+        <button mat-raised-button (click)="runFilter()">Filter</button>
+        <button mat-raised-button (click)="resetFilters()">Reset filter</button>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <p *ngIf="!isActiveChangeMode" (click)="toggleChangeMode(true)">{{fieldValue}}</p>
+    <div *ngIf="isActiveChangeMode">
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select (selectionChange)="handleNewFieldValue($event)" [value]="fieldValue">
+                <mat-option *ngFor="let status of statusSet" [value]="status" >
+                    {{status}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="btn-section">
+            <button mat-stroked-button (click)="changeRecordField()">Change</button>
+            <button mat-stroked-button (click)="cancelToggleChangeMode()">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.wrapper {
+    padding-bottom: 10px;
+
+    p {
+        padding-bottom: 8px;
+        margin: 0;
+        text-decoration: underline;
+    }
+
+    ul {
+        height: 170px;
+        overflow-y: auto;
+    }
+}

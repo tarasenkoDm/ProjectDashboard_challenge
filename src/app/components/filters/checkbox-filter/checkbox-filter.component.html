@@ -1,0 +1,16 @@
+<div class="wrapper" *ngIf="filterForm">
+    <p>{{filterName}}</p>
+    <form [formGroup]="filterForm">
+        <ul *ngIf="checkboxSet">
+            <li>
+                <input id="{{'all' + filterName}}" type="checkbox" formControlName="all"/>
+                <label for="{{'all' + filterName}}">All</label>
+            </li>
+            <li *ngFor="let checkbox of checkboxSet">
+                <input id="{{checkbox + filterName}}" type="checkbox" formControlName="{{checkbox}}"/>
+                <label for="{{checkbox + filterName}}">{{checkbox}}</label>
+            </li>
+        </ul>
+    </form>
+</div>
+
